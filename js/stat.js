@@ -35,13 +35,7 @@
     ctx.fillText('Ура вы победили!', 150, 40);
     ctx.fillText('Список результатов:', 150, 60);
   }
-  window.renderStatistics = function (ctx, names, times) {
-    var opacity;
-
-    drawShadow(ctx);
-    drawCloud(ctx);
-    drawTitle(ctx);
-
+  function getHistogrammStep(names, times) {
     var max = -1;
 
     for (var i = 0; i < times.length; i++) {
@@ -50,12 +44,14 @@
         max = time;
       }
     }
-
     var step = GIST_HEIGHT / max;
-
-    function getRandom(minElem, maxElem) {
-      return Math.random() * (maxElem - minElem) + minElem;
-    }
+    return step;
+  }
+  function getRandom(minElem, maxElem) {
+    return Math.random() * (maxElem - minElem) + minElem;
+  }
+  function getHistogrammDraw(ctx, times, names, step) {
+    var opacity;
 
     for (var j = 0; j < times.length; j++) {
       if (names[j] === 'Вы') {
@@ -69,5 +65,14 @@
       ctx.fillText(names[j], INITIAL_X + (GIST_WIDTH + INDENT) * j, 270);
       ctx.fillText(Math.round(times[j]), INITIAL_X + (GIST_WIDTH + INDENT) * j, INITIAL_Y + BASELINE / 2);
     }
+  }
+  window.renderStatistics = function (ctx, names, times) {
+    // var opacity;
+
+    drawShadow(ctx);
+    drawCloud(ctx);
+    drawTitle(ctx);
+    var step = getHistogrammStep(names, times);
+    getHistogrammDraw(ctx, times, names, step);
   };
 })();
