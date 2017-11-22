@@ -3,6 +3,13 @@
  */
 'use strict';
 (function () {
+  var GIST_WIDTH = 40;
+  var BASELINE = 20;
+  var INDENT = 50;
+  var INITIAL_X = 120;
+  var INITIAL_Y = 80;
+  var GIST_HEIGHT = 150;
+
   function drawShadow(ctx) {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
     ctx.arc(480, 170, 100, 0, Math.PI * 2, false);
@@ -29,13 +36,7 @@
     ctx.fillText('Список результатов:', 150, 60);
   }
   window.renderStatistics = function (ctx, names, times) {
-    var GIST_WIDTH = 40;
-    var BASELINE = 20;
-    var INDENT = 50;
-    var INITIAL_X = 120;
-    var INITIAL_Y = 80;
     var opacity;
-    var GIST_HEIGHT = 150;
 
     drawShadow(ctx);
     drawCloud(ctx);
