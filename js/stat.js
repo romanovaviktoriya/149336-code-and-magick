@@ -67,8 +67,6 @@
     }
   }
   window.renderStatistics = function (ctx, names, times) {
-    // var opacity;
-
     drawShadow(ctx);
     drawCloud(ctx);
     drawTitle(ctx);
