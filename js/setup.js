@@ -69,9 +69,10 @@
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = setup.querySelector('.setup-close');
   var setupSubmit = setup.querySelector('.setup-submit');
+  var focusSetupName = setup.querySelector('.setup-user-name');
 
-  function onPopupEscPress(e) {
-    if (e.keyCode === ESC_KEYCODE) {
+  function onPopupEscPress(event) {
+    if (event.keyCode === ESC_KEYCODE) {
       closePopup();
     }
   }
@@ -82,16 +83,21 @@
   }
 
   function closePopup() {
-    setup.classList.add('hidden');
-    document.removeEventListener('keydown', onPopupEscPress);
+    if (focusSetupName === document.activeElement) {
+      event.preventDefault();
+      return false;
+    } else {
+      setup.classList.add('hidden');
+      document.removeEventListener('keydown', onPopupEscPress);
+    }
   }
 
   setupOpen.addEventListener('click', function () {
     openPopup();
   });
 
-  setupOpen.addEventListener('keydown', function (e) {
-    if (e.keyCode === ENTER_KEYCODE) {
+  setupOpen.addEventListener('keydown', function (event) {
+    if (event.keyCode === ENTER_KEYCODE) {
       openPopup();
     }
   });
@@ -100,8 +106,8 @@
     closePopup();
   });
 
-  setupClose.addEventListener('keydown', function (e) {
-    if (e.keyCode === ENTER_KEYCODE) {
+  setupClose.addEventListener('keydown', function (event) {
+    if (event.keyCode === ENTER_KEYCODE) {
       closePopup();
     }
   });
@@ -110,8 +116,8 @@
     closePopup();
   });
 
-  setupSubmit.addEventListener('keydown', function (e) {
-    if (e.keyCode === ENTER_KEYCODE) {
+  setupSubmit.addEventListener('keydown', function (event) {
+    if (event.keyCode === ENTER_KEYCODE) {
       closePopup();
     }
   });
