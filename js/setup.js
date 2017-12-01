@@ -85,7 +85,6 @@
   function closePopup() {
     if (focusSetupName === document.activeElement) {
       event.preventDefault();
-      return false;
     } else {
       setup.classList.add('hidden');
       document.removeEventListener('keydown', onPopupEscPress);
