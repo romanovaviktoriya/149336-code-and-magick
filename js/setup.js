@@ -8,8 +8,6 @@
   var COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
   var EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
   var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
-  var ESC_KEYCODE = 27;
-  var ENTER_KEYCODE = 13;
 
   function getRandomInteger(min, max) {
     var rand = min + Math.random() * (max + 1 - min);
@@ -65,68 +63,14 @@
 
   blockSetupElement.querySelector('.setup-similar').classList.remove('hidden');
 
-  var setup = document.querySelector('.setup');
-  var setupOpen = document.querySelector('.setup-open');
-  var setupClose = setup.querySelector('.setup-close');
-  var setupSubmit = setup.querySelector('.setup-submit');
-  var focusSetupName = setup.querySelector('.setup-user-name');
-
-  function onPopupEscPress(event) {
-    if (event.keyCode === ESC_KEYCODE) {
-      closePopup();
-    }
-  }
-
-  function openPopup() {
-    setup.classList.remove('hidden');
-    document.addEventListener('keydown', onPopupEscPress);
-  }
-
-  function closePopup() {
-    if (focusSetupName === document.activeElement) {
-      event.preventDefault();
-    } else {
-      setup.classList.add('hidden');
-      document.removeEventListener('keydown', onPopupEscPress);
-    }
-  }
-
-  setupOpen.addEventListener('click', function () {
-    openPopup();
-  });
-
-  setupOpen.addEventListener('keydown', function (event) {
-    if (event.keyCode === ENTER_KEYCODE) {
-      openPopup();
-    }
-  });
-
-  setupClose.addEventListener('click', function () {
-    closePopup();
-  });
-
-  setupClose.addEventListener('keydown', function (event) {
-    if (event.keyCode === ENTER_KEYCODE) {
-      closePopup();
-    }
-  });
-
-  setupSubmit.addEventListener('click', function () {
-    closePopup();
-  });
-
-  setupSubmit.addEventListener('keydown', function (event) {
-    if (event.keyCode === ENTER_KEYCODE) {
-      closePopup();
-    }
-  });
-
+  // setup.js
   var setupWizardCoat = document.querySelector('.setup-wizard .wizard-coat');
   var setupWizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
   var setupFireball = document.querySelector('.setup-fireball-wrap');
 
   setupWizardCoat.addEventListener('click', function () {
-    setupWizardCoat.style.fill = getCoatColor(COAT_COLOR);
+    // setupWizardCoat.style.fill = getCoatColor(COAT_COLOR);
+    window.colorize(setupWizardCoat);
   });
 
   setupWizardEyes.addEventListener('click', function () {
