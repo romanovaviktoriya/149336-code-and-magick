@@ -7,7 +7,6 @@
   var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
   var COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
   var EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
-  var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
   function getRandomInteger(min, max) {
     var rand = min + Math.random() * (max + 1 - min);
@@ -63,21 +62,19 @@
 
   blockSetupElement.querySelector('.setup-similar').classList.remove('hidden');
 
-  // setup.js
-  var setupWizardCoat = document.querySelector('.setup-wizard .wizard-coat');
-  var setupWizardEyes = document.querySelector('.setup-wizard .wizard-eyes');
-  var setupFireball = document.querySelector('.setup-fireball-wrap');
+  var setupWizardCoatElement = document.querySelector('.setup-wizard .wizard-coat');
+  var setupWizardEyesElement = document.querySelector('.setup-wizard .wizard-eyes');
+  var setupFireballElement = document.querySelector('.setup-fireball-wrap');
 
-  setupWizardCoat.addEventListener('click', function () {
-    // setupWizardCoat.style.fill = getCoatColor(COAT_COLOR);
-    window.colorize(setupWizardCoat);
+  setupWizardCoatElement.addEventListener('click', function () {
+    window.colorize(setupWizardCoatElement);
   });
 
-  setupWizardEyes.addEventListener('click', function () {
-    setupWizardEyes.style.fill = getEyesColor(EYES_COLOR);
+  setupWizardEyesElement.addEventListener('click', function () {
+    window.colorize(setupWizardEyesElement);
   });
 
-  setupFireball.addEventListener('click', function () {
-    setupFireball.style.background = FIREBALL_COLORS[getRandomInteger(0, FIREBALL_COLORS.length - 1)];
+  setupFireballElement.addEventListener('click', function () {
+    window.colorize(setupFireballElement);
   });
 })();
