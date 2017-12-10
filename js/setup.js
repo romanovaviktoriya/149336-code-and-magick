@@ -7,6 +7,7 @@
   var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
   var COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
   var EYES_COLOR = ['black', 'red', 'blue', 'yellow', 'green'];
+  var FIREBALL_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
   function getRandomInteger(min, max) {
     var rand = min + Math.random() * (max + 1 - min);
@@ -67,14 +68,14 @@
   var setupFireballElement = document.querySelector('.setup-fireball-wrap');
 
   setupWizardCoatElement.addEventListener('click', function () {
-    window.colorize(setupWizardCoatElement);
+    window.colorize(setupWizardCoatElement, COAT_COLOR);
   });
 
   setupWizardEyesElement.addEventListener('click', function () {
-    window.colorize(setupWizardEyesElement);
+    window.colorize(setupWizardEyesElement, EYES_COLOR);
   });
 
   setupFireballElement.addEventListener('click', function () {
-    window.colorize(setupFireballElement);
+    window.colorize(setupFireballElement, FIREBALL_COLORS);
   });
 })();
