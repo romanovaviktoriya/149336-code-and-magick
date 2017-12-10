@@ -2,8 +2,8 @@
 (function () {
   var setupFireballElement = document.querySelector('.setup-fireball-wrap');
 
-  function getRandomColor(color) {
-    return color[Math.floor(color.length * Math.random())];
+  function getRandomColor(colors) {
+    return colors[Math.floor(colors.length * Math.random())];
   }
 
   window.colorize = function (element, color) {
