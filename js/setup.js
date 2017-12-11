@@ -84,10 +84,8 @@
   var draggedItem = null;
 
   shopElement.addEventListener('dragstart', function (event) {
-    if (event.target.tagName.toLowerCase() === 'img') {
-      draggedItem = event.target;
-      event.dataTransfer.setData('text/plain', event.target.alt);
-    }
+    draggedItem = event.target;
+    event.dataTransfer.setData('text/plain', event.target.alt);
   });
 
   // элемент, в который переносятся исходный элемент
