@@ -78,4 +78,46 @@
   setupFireballElement.addEventListener('click', function () {
     window.colorize(setupFireballElement, FIREBALL_COLORS);
   });
+
+  // Перетаскивание элементов из одного положения в другое
+  var shopElement = document.querySelector('.setup-artifacts-shop');
+  var draggedItem = null;
+
+  shopElement.addEventListener('dragstart', function (event) {
+    if (event.target.tagName.toLowerCase() === 'img') {
+      draggedItem = event.target;
+      event.dataTransfer.setData('text/plain', event.target.alt);
+    }
+  });
+
+  // элемент, в который переносятся исходный элемент
+  var artifactsElement = document.querySelector('.setup-artifacts');
+
+  // обрабатываем событие dragover и отменяем действие по умолчанию
+  artifactsElement.addEventListener('dragover', function (event) {
+    event.preventDefault();
+    artifactsElement.style.outline = '2px dashed red';
+    return false;
+  });
+
+  artifactsElement.addEventListener('drop', function (event) {
+    event.target.style.backgroundColor = '';
+    if (event.target.childNodes.length === 0) {
+      event.target.appendChild(draggedItem.cloneNode(true));
+    }
+    artifactsElement.style.outline = '';
+    event.preventDefault();
+  });
+
+
+  artifactsElement.addEventListener('dragenter', function (event) {
+    event.target.style.backgroundColor = 'yellow';
+    event.preventDefault();
+  });
+
+  artifactsElement.addEventListener('dragleave', function (event) {
+    event.target.style.backgroundColor = '';
+    artifactsElement.style.outline = '';
+    event.preventDefault();
+  });
 })();
