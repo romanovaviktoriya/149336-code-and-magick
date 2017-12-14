@@ -67,16 +67,24 @@
   var setupWizardEyesElement = document.querySelector('.setup-wizard .wizard-eyes');
   var setupFireballElement = document.querySelector('.setup-fireball-wrap');
 
+  function changeElementFill(element, color) {
+    element.style.fill = color;
+  }
+
+  function changeElementBackground(element, color) {
+    element.style.backgroundColor = color;
+  }
+
   setupWizardCoatElement.addEventListener('click', function () {
-    window.colorize(setupWizardCoatElement, COAT_COLOR);
+    window.colorizeElement(setupWizardCoatElement, COAT_COLOR, changeElementFill);
   });
 
   setupWizardEyesElement.addEventListener('click', function () {
-    window.colorize(setupWizardEyesElement, EYES_COLOR);
+    window.colorizeElement(setupWizardEyesElement, EYES_COLOR, changeElementFill);
   });
 
   setupFireballElement.addEventListener('click', function () {
-    window.colorize(setupFireballElement, FIREBALL_COLORS);
+    window.colorizeElement(setupFireballElement, FIREBALL_COLORS, changeElementBackground);
   });
 
   // Перетаскивание элементов из одного положения в другое
