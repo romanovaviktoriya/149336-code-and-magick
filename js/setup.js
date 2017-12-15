@@ -31,7 +31,7 @@
   }
 
   var blockSetupElement = document.querySelector('.setup');
-  blockSetupElement.classList.remove('hidden');
+  // blockSetupElement.classList.remove('hidden');
 
   var similarListElement = blockSetupElement.querySelector('.setup-similar-list');
 
@@ -91,12 +91,32 @@
   var setupWizardEyesElement = document.querySelector('.setup-wizard .wizard-eyes');
   var setupFireballElement = document.querySelector('.setup-fireball-wrap');
 
+  function inputChangeColor(element, color) {
+    var inputHiddenElement = form.querySelectorAll('input[type="hidden"]');
+    var classElement = element.classList[0];
+    if (classElement.search('fireball') + 1) {
+      classElement = classElement.substring(6, 14);
+    } else {
+      classElement = classElement.substring(7);
+    }
+    for (var i = 0; i < inputHiddenElement.length; i++) {
+      var inputHiddenName = inputHiddenElement[i].name;
+      if (inputHiddenName.indexOf(classElement) + 1) {
+        inputHiddenElement[i].value = color;
+        return;
+      }
+    }
+  }
+
+
   function changeElementFill(element, color) {
     element.style.fill = color;
+    inputChangeColor(element, color);
   }
 
   function changeElementBackground(element, color) {
     element.style.backgroundColor = color;
+    inputChangeColor(element, color);
   }
 
   setupWizardCoatElement.addEventListener('click', function () {

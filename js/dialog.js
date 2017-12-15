@@ -32,8 +32,8 @@
       setupElement.classList.add('hidden');
       document.removeEventListener('keydown', onPopupEscPress);
       // сброс координат окна на первоначальные
-      setupElement.style.top = enterCoords[1] + 'px';
-      setupElement.style.left = enterCoords[0] + 'px';
+      setupElement.style.top = 80 + 'px';
+      setupElement.style.left = 50 + '%';
     }
   }
 
