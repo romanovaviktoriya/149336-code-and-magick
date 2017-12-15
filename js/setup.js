@@ -58,7 +58,7 @@
   function successRenderWizardHandler(wizard) {
     var fragment = document.createDocumentFragment();
     for (var j = 0; j < 4; j++) {
-      fragment.appendChild(renderWizard(wizard[j]));
+      fragment.appendChild(renderWizard(wizard[getRandomInteger(0, wizard.length - 1)]));
     }
     similarListElement.appendChild(fragment);
 
@@ -67,13 +67,11 @@
 
   function errorRenderWizardHandler(errorMessage) {
     var whereInsertFragmentElement = document.querySelector('.overlay.setup');
-    var fragment = document.createDocumentFragment();
     var messageError = document.createElement('div');
-    fragment.appendChild(messageError);
     messageError.className = 'alert-danger';
     messageError.innerHTML = errorMessage;
     messageError.style = 'display:block;margin:0 auto;padding:10px;text-align:center; background-color:#ee4830;color:#ffffff';
-    whereInsertFragmentElement.prepend(fragment);
+    whereInsertFragmentElement.prepend(messageError);
   }
 
   window.backend.load(successRenderWizardHandler, errorRenderWizardHandler);
