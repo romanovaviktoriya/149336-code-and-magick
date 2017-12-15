@@ -1,6 +1,3 @@
-/**
- * Created by КузяАсер on 22.11.2017.
- */
 'use strict';
 (function () {
   var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'Кристоф', 'Виктор', 'Юлия', 'Люпита', 'Вашингтон'];
@@ -31,7 +28,6 @@
   }
 
   var blockSetupElement = document.querySelector('.setup');
-  // blockSetupElement.classList.remove('hidden');
 
   var similarListElement = blockSetupElement.querySelector('.setup-similar-list');
 

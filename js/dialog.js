@@ -6,15 +6,6 @@
   var setupSubmitElement = setupElement.querySelector('.setup-submit');
   var focusSetupNameElement = setupElement.querySelector('.setup-user-name');
 
-  function calculateCoordinate() {
-    var enterCoords = {
-      x: setupElement.offsetLeft,
-      y: setupElement.offsetTop
-    };
-    return [enterCoords.x, enterCoords.y];
-  }
-  var enterCoords = calculateCoordinate();
-
   function onPopupEscPress(event) {
     window.util.isEscEvent(event, closePopup);
   }
