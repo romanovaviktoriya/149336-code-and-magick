@@ -6,15 +6,6 @@
   var setupSubmitElement = setupElement.querySelector('.setup-submit');
   var focusSetupNameElement = setupElement.querySelector('.setup-user-name');
 
-  function calculateCoordinate() {
-    var enterCoords = {
-      x: setupElement.offsetLeft,
-      y: setupElement.offsetTop
-    };
-    return [enterCoords.x, enterCoords.y];
-  }
-  var enterCoords = calculateCoordinate();
-
   function onPopupEscPress(event) {
     window.util.isEscEvent(event, closePopup);
   }
@@ -32,8 +23,8 @@
       setupElement.classList.add('hidden');
       document.removeEventListener('keydown', onPopupEscPress);
       // сброс координат окна на первоначальные
-      setupElement.style.top = enterCoords[1] + 'px';
-      setupElement.style.left = enterCoords[0] + 'px';
+      setupElement.style.top = 80 + 'px';
+      setupElement.style.left = 50 + '%';
     }
   }
 
