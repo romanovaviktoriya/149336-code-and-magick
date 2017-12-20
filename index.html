@@ -188,25 +188,25 @@
 
     var getFireballSpeed = function(left) {	//скоростью фаербола в зависимости от направления ветра в игре
         return left ? 5: 2;
-    }
+    };
     var wizardSpeed = 3;
     var wizardWidth = 70;
 
     var getWizardHeight = function() {
         return 1.337 * wizardWidth;
-    }
+    };
 
     function getWizardX(width){
         //Напишите функцию так, чтобы центр фигурки мага находился по середине игрового поля
         var answerWizardX = width / 2 - wizardWidth / 2;
         return answerWizardX;
-    };
+    }
 
     function getWizardY(height){
         //Напишите функцию так, чтобы маг появлялся на высоте две трети игрового поля от земли
         var answerWizardY = height / 3 - getWizardHeight();
         return answerWizardY;
-    };
+    }
 </script>
 
 <script src="js/stat.js"></script>
@@ -214,6 +214,8 @@
 
 <script src="js/colorize-element.js"></script>
 <script src="js/backend.js"></script>
+<script src="js/render.js"></script>
+<script src="js/wizard.js"></script>
 <script src="js/setup.js"></script>
 <script src="js/util.js"></script>
 <script src="js/dialog.js"></script>
