@@ -27,25 +27,14 @@
     }));
   }
 
-  var lastTimeout;
   window.wizard.onEyesChange = function (color) {
     eyesColor = color;
-    if (lastTimeout) {
-      window.clearTimeout(lastTimeout);
-    }
-    lastTimeout = window.setTimeout(function () {
-      updateWizards();
-    }, 300);
+    window.debounce(updateWizards);
   };
 
   window.wizard.onCoatChange = function (color) {
     coatColor = color;
-    if (lastTimeout) {
-      window.clearTimeout(lastTimeout);
-    }
-    lastTimeout = window.setTimeout(function () {
-      updateWizards();
-    }, 300);
+    window.debounce(updateWizards);
   };
 
   function successRenderWizardHandler(data) {
